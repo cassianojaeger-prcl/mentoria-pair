@@ -14,7 +14,7 @@ public class CustomerRepository {
 
   public CustomerRepository() {
     this.inMemoryDb = new ArrayList<>();
-    this.populateDatabase();
+//    this.populateDatabase();
   }
 
   public List<Customer> getAllCustomers() {
@@ -33,10 +33,10 @@ public class CustomerRepository {
   public List<Customer> getCustomersByAge(int age) {
     return inMemoryDb.stream().filter(cust -> cust.getAge() == age).collect(Collectors.toList());
   }
-
-  private void populateDatabase() {
-    this.inMemoryDb.add(new Customer(1L,"john1", "palma1", 10));
-    this.inMemoryDb.add(new Customer(2L,"john2", "palma2", 20));
-    this.inMemoryDb.add(new Customer(3L,"john3", "palma3", 30));
-  }
+//
+//  private void populateDatabase() {
+//    this.inMemoryDb.add(new Customer(1L,"john1", "palma1", 10));
+//    this.inMemoryDb.add(new Customer(2L,"john2", "palma2", 20));
+//    this.inMemoryDb.add(new Customer(3L,"john3", "palma3", 30));
+//  }
 }
