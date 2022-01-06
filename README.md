@@ -12,5 +12,5 @@ mvn spring-boot:run
 Insomnia is a Open Source API Client. Download it to use the provided insomnia collection in this project
 https://insomnia.rest/download
 
-Import ```Insomnia_2022-01-06.json
+Import ```Insomnia_2022-01-06.json```
 
