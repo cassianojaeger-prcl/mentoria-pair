@@ -4,18 +4,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import projeto.mentoria.demo.model.Customer;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CustomerRepositoryTest {
 
-  /**
-   * JUnit Specific to unit test something with mocks. This annotation will inject
-   * all dependencies defined mocks into this class. In our case, we still don't have anything.
-   */
-  @InjectMocks
+  @Autowired
   CustomerRepository customerRepository;
 
   /**
@@ -45,26 +43,10 @@ class CustomerRepositoryTest {
     //Then
   }
 
-  /**
-   * Unit tests are designed to test a single piece of code block (aka functions/methods)
-   * Usually methods have dependencies, like other classes or external things like api or DB
-   * calls.
-   *
-   * It is a common practice to mock not relevant dependencies when unit testing something.
-   * As they are not relevant for the test, you should not waste time creating unnecessary things.
-   *
-   * Some languages have mock frameworks, which helps a lot and prevent a lot of extra code for mocking.
-   * But at the other hand, some languages are not that powerful, or you are handling with
-   * old legacy code bases. In that case, it is common to implement mock classes. This is a more advanced topic.
-   */
-  @Test
-  void unitTests() {}
-
   @Test
   void GivenAValidCustomer_WhenSaving_ThenCustomerMustExistInDb() {
     //Given Customer
     Customer customer = new Customer(5L, "test", "lastNametest", 20);
-    CustomerRepository customerRepository = new CustomerRepository();
 
     //When saving
     customerRepository.saveCustomer(customer);

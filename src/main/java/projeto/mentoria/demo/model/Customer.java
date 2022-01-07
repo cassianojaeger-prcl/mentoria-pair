@@ -1,6 +1,7 @@
 package projeto.mentoria.demo.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Customer {
   private long id;
@@ -54,5 +55,17 @@ public class Customer {
 
   public void setCreditCards(List<CreditCard> creditCards) {
     this.creditCards = creditCards;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Customer)) return false;
+    return id == (((Customer) o).getId());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }
